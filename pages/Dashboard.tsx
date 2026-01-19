@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
       const dynamicSafety = calculateSafetyStock(demands);
       
       // 3. Rekomendasi Beli: (Ramalan + SS) - Stok Gudang Saat Ini
-      const forecastRounded = Math.round(nextPeriodForecast);
+      const forecastRounded = Math.ceil(nextPeriodForecast);
       const orderQuantity = Math.max(0, (forecastRounded + dynamicSafety) - product.stock.currentStock);
 
       // 4. Tentukan label target ramalan secara dinamis

@@ -41,7 +41,7 @@ const PurchasePlan: React.FC = () => {
     const { nextPeriodForecast } = calculateSMA(product.data, n);
     const demands = product.data.map(d => d.demand);
     const dynamicSafetyStock = calculateSafetyStock(demands);
-    const forecastRounded = Math.round(nextPeriodForecast);
+    const forecastRounded = Math.ceil(nextPeriodForecast);
     
     // RUMUS: Kebutuhan Stok - Stok Gudang Saat Ini
     const orderQuantity = (forecastRounded + dynamicSafetyStock) - product.stock.currentStock;

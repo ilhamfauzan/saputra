@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F06 - Data Historis | Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif;
+        }
+        body {
+            background: #e0e0e0;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .wrapper {
+            max-width: 900px;
+            width: 100%;
+        }
+        .page-code {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .container {
+            display: flex;
+            gap: 12px;
+        }
+        .main-panel {
+            flex: 1;
+            border: 1px solid #000;
+            background: #fff;
+        }
+        .nav-panel {
+            width: 150px;
+            border: 1px solid #000;
+            padding: 10px;
+            font-size: 9px;
+            background: #fff;
+        }
+        .nav-panel h4 {
+            margin-bottom: 8px;
+            font-size: 10px;
+        }
+        .nav-panel ul {
+            list-style: disc;
+            padding-left: 15px;
+        }
+        .nav-panel li {
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+        .color-info {
+            margin-top: 12px;
+            border: 1px solid #000;
+            padding: 10px;
+            font-size: 9px;
+            line-height: 1.5;
+            background: #fff;
+        }
+        /* Layout */
+        .app-layout {
+            display: flex;
+        }
+        .sidebar {
+            width: 130px;
+            background: #fff;
+            border-right: 1px solid #ccc;
+            padding: 12px 8px;
+        }
+        .sidebar-logo {
+            font-weight: bold;
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+        .sidebar-accent {
+            width: 18px;
+            height: 2px;
+            background: #666;
+            margin-bottom: 15px;
+        }
+        .sidebar-menu {
+            list-style: none;
+        }
+        .sidebar-menu li {
+            padding: 8px 10px;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+            cursor: pointer;
+        }
+        .sidebar-menu li.active {
+            background: #333;
+            color: #fff;
+        }
+        .sidebar-user {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+        .sidebar-user-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .sidebar-user-avatar {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .sidebar-user-name {
+            font-size: 9px;
+            font-weight: bold;
+        }
+        .sidebar-user-role {
+            font-size: 7px;
+            color: #888;
+            text-transform: uppercase;
+        }
+        .sidebar-logout {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 7px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .content {
+            flex: 1;
+            padding: 15px;
+            background: #fafafa;
+        }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .page-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .page-subtitle {
+            font-size: 7px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-export {
+            padding: 8px 15px;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            font-size: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        /* Table */
+        .table-container {
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-size: 7px;
+            text-transform: uppercase;
+            color: #888;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        th:not(:first-child) {
+            text-align: right;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 9px;
+        }
+        td:not(:first-child) {
+            text-align: right;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .period-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .period-icon {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6px;
+            color: #ccc;
+        }
+        .table-footer {
+            padding: 10px 12px;
+            background: #fafafa;
+            text-align: center;
+            font-size: 7px;
+            color: #ccc;
+            text-transform: uppercase;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page-code">F06</div>
+        
+        <div class="container">
+            <div class="main-panel">
+                <div class="app-layout">
+                    <div class="sidebar">
+                        <div class="sidebar-logo">Saputra Jaya</div>
+                        <div class="sidebar-accent"></div>
+                        
+                        <ul class="sidebar-menu">
+                            <li>Dashboard</li>
+                            <li>Rencana Beli</li>
+                            <li>Produk</li>
+                            <li>Analisis SMA</li>
+                            <li class="active">Data Historis</li>
+                        </ul>
+                        
+                        <div class="sidebar-user">
+                            <div class="sidebar-user-info">
+                                <div class="sidebar-user-avatar">A</div>
+                                <div>
+                                    <div class="sidebar-user-name">ADMIN</div>
+                                    <div class="sidebar-user-role">Operator</div>
+                                </div>
+                            </div>
+                            <button class="sidebar-logout">Logout</button>
+                        </div>
+                    </div>
+                    
+                    <div class="content">
+                        <div class="page-header">
+                            <div>
+                                <h1 class="page-title">Data Historis</h1>
+                                <p class="page-subtitle">Historical Sales Record</p>
+                            </div>
+                            <button class="btn-export">Export CSV</button>
+                        </div>
+                        
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Periode</th>
+                                        <th>Minyak Goreng (Dus)</th>
+                                        <th>Gula Pasir (Pcs)</th>
+                                        <th>Beras 5Kg (Bal)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="period-cell">
+                                                <div class="period-icon">DOC</div>
+                                                Jan 2026
+                                            </div>
+                                        </td>
+                                        <td>95</td>
+                                        <td>110</td>
+                                        <td>45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="period-cell">
+                                                <div class="period-icon">DOC</div>
+                                                Des 2025
+                                            </div>
+                                        </td>
+                                        <td>82</td>
+                                        <td>98</td>
+                                        <td>52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="period-cell">
+                                                <div class="period-icon">DOC</div>
+                                                Nov 2025
+                                            </div>
+                                        </td>
+                                        <td>78</td>
+                                        <td>105</td>
+                                        <td>48</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="period-cell">
+                                                <div class="period-icon">DOC</div>
+                                                Okt 2025
+                                            </div>
+                                        </td>
+                                        <td>88</td>
+                                        <td>92</td>
+                                        <td>55</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-footer">
+                                Data digunakan sebagai basis perhitungan algoritma SMA.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-panel">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li>Klik Dashboard untuk menuju ke F02</li>
+                    <li>Klik Data Historis untuk tetap di F06</li>
+                    <li>Klik Export CSV untuk mengunduh data</li>
+                    <li>Klik Logout untuk menuju ke F01</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="color-info">
+            <strong>Warna Background:</strong> #ffffff, #fafafa<br>
+            <strong>Warna Font:</strong> #000000, #333333, #666666, #888888, #cccccc<br>
+            <strong>Jenis Font:</strong> Inter, sans-serif
+        </div>
+    </div>
+</body>
+</html>
