@@ -27,10 +27,6 @@ const App: React.FC = () => {
               {/* Employee routes */}
               <Route element={<ProtectedRoute allowedRoles={['employee']} />}>
                 <Route path="/pos" element={<Layout><POS /></Layout>} />
-              </Route>
-
-              {/* Shared Data Master routes (both roles) */}
-              <Route element={<ProtectedRoute allowedRoles={['employee', 'owner']} />}>
                 <Route path="/products" element={<Layout><ProductManagement /></Layout>} />
                 <Route path="/suppliers" element={<Layout><Suppliers /></Layout>} />
               </Route>

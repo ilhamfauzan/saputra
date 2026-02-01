@@ -27,8 +27,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 
   // Data Master sub-links based on role
   const dataMasterLinks = [
-    { name: 'Supplier', path: '/suppliers', icon: Package2 },
-    { name: 'Produk', path: '/products', icon: Package2 },
+    // Only employee can see Supplier and Produk
+    ...(!isOwner ? [
+      { name: 'Supplier', path: '/suppliers', icon: Package2 },
+      { name: 'Produk', path: '/products', icon: Package2 },
+    ] : []),
     // Only owner can see Karyawan
     ...(isOwner ? [{ name: 'Karyawan', path: '/employees', icon: Users }] : []),
   ];
@@ -83,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                 }`}
               >
                 <ShoppingCart className={`h-5 w-5 ${isActive('/plan') ? 'text-white' : 'text-slate-300 group-hover:text-slate-500'}`} />
-                Rencana Beli
+                Penentuan Jumlah Pembelian Barang
               </Link>
 
               <Link

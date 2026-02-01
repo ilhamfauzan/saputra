@@ -48,15 +48,21 @@ const PurchasePlan: React.FC = () => {
     });
   }, [products, transactions, suppliers]);
 
-  // Filter berdasarkan search query
+  // Filter berdasarkan search query dan sort by orderQuantity (saran beli) descending
   const filteredPlanData = useMemo(() => {
-    if (!searchQuery.trim()) return planData;
-    const query = searchQuery.toLowerCase();
-    return planData.filter(item => 
-      item.name.toLowerCase().includes(query) ||
-      item.supplier?.name.toLowerCase().includes(query) ||
-      item.unit.toLowerCase().includes(query)
-    );
+    let data = planData;
+    
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      data = data.filter(item => 
+        item.name.toLowerCase().includes(query) ||
+        item.supplier?.name.toLowerCase().includes(query) ||
+        item.unit.toLowerCase().includes(query)
+      );
+    }
+    
+    // Sort by orderQuantity (saran beli) from highest to lowest
+    return [...data].sort((a, b) => b.orderQuantity - a.orderQuantity);
   }, [planData, searchQuery]);
 
   return (
